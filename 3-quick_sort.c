@@ -42,7 +42,7 @@ int lomuto_partition(int *array, int low_bnd, int up_bnd, size_t size)
 		if (array[jdx] < pivot)
 		{
 			start++;
-			
+
 			if (array[start] != array[jdx])
 			{
 				swap_elements(&array[start], &array[jdx]);
@@ -50,7 +50,7 @@ int lomuto_partition(int *array, int low_bnd, int up_bnd, size_t size)
 			}
 		}
 	}
-	
+
 	if (array[start + 1] != array[up_bnd])
 	{
 		swap_elements(&array[start + 1], &array[up_bnd]);
