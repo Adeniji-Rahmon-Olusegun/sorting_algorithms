@@ -24,6 +24,7 @@ void swap_elements(int *e1, int *e2)
  * @array: unsorted array
  * @low_bnd: lower bound
  * @up_bnd: upper bound
+ * @size: array size
  *
  * Return: upper bound
  */
@@ -42,15 +43,15 @@ int lomuto_partition(int *array, int low_bnd, int up_bnd, size_t size)
 		{
 			start++;
 			swap_elements(&array[start], &array[jdx]);
-			/*print_array(array, size);*/
+			print_array(array, size);
 		}
 	}
-	
+
 	swap_elements(&array[start + 1], &array[up_bnd]);
 
 	print_array(array, size);
 
-	return start + 1;
+	return (start + 1);
 }
 
 /**
@@ -59,6 +60,7 @@ int lomuto_partition(int *array, int low_bnd, int up_bnd, size_t size)
  * @array: unsorted array
  * @low_bnd: lower bound
  * @up_bnd: upper bound
+ * @size: array size
  *
  * Return: void
  */
