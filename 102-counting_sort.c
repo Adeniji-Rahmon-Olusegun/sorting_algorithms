@@ -31,6 +31,9 @@ int find_max_val(int *array, size_t size)
 /**
  * free_null - frees memory not properly
  * allocated
+ *
+ * @pointer_mem: points to the dynamically
+ * allocated memory block
  */
 
 void free_null(int *pointer_mem)
@@ -38,7 +41,7 @@ void free_null(int *pointer_mem)
 	if (pointer_mem == NULL)
 	{
 		free(pointer_mem);
-		
+
 		return;
 	}
 }
@@ -72,32 +75,22 @@ void counting_sort(int *array, size_t size)
 	free_null(array_copy);
 
 	for (jdx = 0; jdx < (max_k + 1); jdx++)
-	{
 		count_array[jdx] = 0;
-	}
 
 	for (idx = 0; idx < size; idx++)
-	{
 		count_array[array[idx]]++;
-	}
-	
+
 	for (jdx = 1; jdx <= max_k; jdx++)
-	{
 		count_array[jdx] = count_array[jdx] + count_array[jdx - 1];
-	}
-	
+
 	print_array(count_array, max_k + 1);
 
 	for (jdx = size - 1; jdx >= 0; jdx--)
-	{
 		array_copy[--count_array[array[jdx]]] = array[jdx];
-	}
 
 	for (idx = 0; idx < size; idx++)
-	{
 		array[idx] = array_copy[idx];
-	}
-	
+
 	free(count_array);
 	free(array_copy);
 }
